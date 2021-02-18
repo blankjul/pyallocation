@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="componentAllocation" nsURI="http://www.example.org/componentAllocation"
+    nsPrefix="componentAllocation">
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resConsumptions" upperBound="-1"
+        eType="#//ResConsumption" eOpposite="#//ResConsumption/component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpuAvail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="memAvailable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerAvail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compUnitName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resConsumptions" upperBound="-1"
+        eType="#//ResConsumption" eOpposite="#//ResConsumption/compUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TradeOffVector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpuFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="memoryFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResConsumption">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpuCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="memoryCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component" eOpposite="#//Component/resConsumptions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compUnit" lowerBound="1"
+        eType="#//CompUnit" eOpposite="#//CompUnit/resConsumptions"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compUnit" lowerBound="1"
+        eType="#//CompUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AntiAllocationConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compUnit" lowerBound="1"
+        eType="#//CompUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationProblem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tradeOffvector" lowerBound="1"
+        eType="#//TradeOffVector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compUnits" lowerBound="1"
+        upperBound="-1" eType="#//CompUnit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationConstraints"
+        upperBound="-1" eType="#//AllocationConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="antiAllocationConstraints"
+        upperBound="-1" eType="#//AntiAllocationConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resConsumptions" upperBound="-1"
+        eType="#//ResConsumption" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

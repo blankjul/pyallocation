@@ -8,9 +8,10 @@ from pyallocation.solvers.ilp import MultiObjectiveILP
 # print(f"Example | CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')} ")
 
 
-for k in range(10):
+for k in range(1):
 
     problem = load_problem(k)
+    
 
     res = ILP().setup(problem, verbose=False).solve()
     # print(f"----------------------------")

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="componentAllocation" nsURI="http://www.example.org/componentAllocation2"
+    nsPrefix="componentAllocation2">
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceconsumption" upperBound="-1"
+        eType="#//ResourceConsumption" eOpposite="#//ResourceConsumption/component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceavailability" upperBound="-1"
+        eType="#//ResourceAvailability" eOpposite="#//ResourceAvailability/unit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceconsumption" upperBound="-1"
+        eType="#//ResourceConsumption" eOpposite="#//ResourceConsumption/unit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TradeOffWeight">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="#//Resource" eOpposite="#//Resource/tradeoffweight"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AntiAllocationConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllocationProblem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" lowerBound="1"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tradeOffvector" lowerBound="1"
+        upperBound="-1" eType="#//TradeOffWeight" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="units" lowerBound="1" upperBound="-1"
+        eType="#//Unit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocationConstraints"
+        upperBound="-1" eType="#//AllocationConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="antiAllocationConstraints"
+        upperBound="-1" eType="#//AntiAllocationConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" lowerBound="1"
+        upperBound="-1" eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceconsumption" upperBound="-1"
+        eType="#//ResourceConsumption" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceavailability" upperBound="-1"
+        eType="#//ResourceAvailability" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceavailability" upperBound="-1"
+        eType="#//ResourceAvailability" eOpposite="#//ResourceAvailability/resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tradeoffweight" lowerBound="1"
+        eType="#//TradeOffWeight" eOpposite="#//TradeOffWeight/resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceconsumption" upperBound="-1"
+        eType="#//ResourceConsumption" eOpposite="#//ResourceConsumption/resource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceAvailability">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="#//Resource" eOpposite="#//Resource/resourceavailability"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"
+        eOpposite="#//Unit/resourceavailability"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceConsumption">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component" eOpposite="#//Component/resourceconsumption"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1" eType="#//Unit"
+        eOpposite="#//Unit/resourceconsumption"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="#//Resource" eOpposite="#//Resource/resourceconsumption"/>
+  </eClassifiers>
+</ecore:EPackage>
