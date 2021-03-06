@@ -9,7 +9,7 @@ rset = ResourceSet()
 resource = rset.get_resource(URI('componentAllocation2.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('system_n0.model'))
+resource = rset.get_resource(URI('inputModel_0.model'))
 model_root = resource.contents[0]
 
 components = model_root.components
