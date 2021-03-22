@@ -1,3 +1,11 @@
+import pickle
+
+from pymoo.util.normalization import normalize
+from pymoo.visualization.pcp import PCP
+from pymoo.visualization.petal import Petal
+from pymoo.visualization.radar import Radar
+from pymoo.visualization.scatter import Scatter
+
 from pyallocation.loader import example_problem, load_problem
 from pyallocation.solvers.exhaustive import ExhaustiveAlgorithm
 from pyallocation.solvers.ilp import ILP, EpsilonConstraintILP
@@ -8,17 +16,47 @@ from pyallocation.solvers.ilp import MultiObjectiveILP
 # print(f"Example | CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')} ")
 
 
-for k in range(1):
+# for k in range(8):
+k = 8
+problem = load_problem(k)
 
-    problem = load_problem(k)
-    
+# res = MultiObjectiveILP().setup(problem, verbose=False).solve()
+# pickle.dump(res, open("solutions.dat", "wb"))
 
-    res = ILP().setup(problem, verbose=False).solve()
-    # print(f"----------------------------")
-    # print(f"System{k}")
-    # print(f"----------------------------")
-    for e in res.pop:
-        print(f"System{k} | CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')} ")
+res = pickle.load(open("solutions.dat", "rb"))
+
+F = res.F
+F_norm = normalize(F)
+ideal = F.min(axis=0)
+nadir = F.max(axis=0)
+
+labels = ["CPU", "Memory", "Power"]
+
+Scatter(labels=labels).add(F, facecolor="none", edgecolor="red").show()
+
+s = 15
+
+# plot = PCP(labels=labels)
+# plot.set_axis_style(color="grey", alpha=0.5)
+# plot.add(F, color="grey", alpha=0.3)
+# plot.add(F[s], linewidth=5, color="red")
+# plot.show()
+#
+
+
+plot = Petal(bounds=(0, 1), reverse=False, labels=labels)
+plot.add(F_norm[s])
+plot.show()
+
+# plot = Radar(bounds=(0, 1), normalize_each_objective=False)
+# plot.add(F_norm[s])
+# plot.show()
+
+# print(f"----------------------------")
+# print(f"System{k}")
+# print(f"----------------------------")
+for e in res.pop:
+    print(f"System{k} | CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')} ")
 
 #
 #
