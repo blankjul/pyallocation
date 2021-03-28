@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <solutionSet:SolutionSet xmlns:xmi="http://www.omg.org/XMI" xmlns:solutionSet="http://www.example.org/solutionSet" xmi:version="2.0">
   <solutions>
-    <mappings compName="comp1" unitName="unit1"/>
-    <mappings compName="comp2" unitName="unit2"/>
-    <mappings compName="comp3" unitName="unit1"/>
-    <mappings compName="com4" unitName="unit3"/>
-    <mappings compName="comp5" unitName="unit1"/>
-    <mappings compName="comp6" unitName="unit1"/>
-    <mappings compName="comp7" unitName="unit4"/>
-    <mappings compName="comp8" unitName="unit2"/>
-    <mappings compName="comp9" unitName="unit2"/>
-    <mappings compName="comp10" unitName="unit2"/>
-    <mappings compName="comp11" unitName="unit2"/>
+    <mappings unitName="unit1" compName="comp1"/>
+    <mappings unitName="unit2" compName="comp2"/>
+    <mappings unitName="unit1" compName="comp3"/>
+    <mappings unitName="unit3" compName="com4"/>
+    <mappings unitName="unit1" compName="comp5"/>
+    <mappings unitName="unit1" compName="comp6"/>
+    <mappings unitName="unit4" compName="comp7"/>
+    <mappings unitName="unit2" compName="comp8"/>
+    <mappings unitName="unit2" compName="comp9"/>
+    <mappings unitName="unit2" compName="comp10"/>
+    <mappings unitName="unit2" compName="comp11"/>
   </solutions>
 </solutionSet:SolutionSet>
