@@ -2,7 +2,9 @@ import numpy as np
 from pyecore.resources import ResourceSet, URI
 
 from pyallocation.problem import AllocationProblem
-from pyallocation.solvers.ilp import ILP
+#from pymoo.util.normalization import normalize
+#from pymoo.visualization.scatter import Scatter
+from pyallocation.solvers.ilp import MultiObjectiveILP
 
 #Read the input model file named system_n0.model
 rset = ResourceSet()
@@ -72,18 +74,25 @@ for antiAllocationConstraint in antiAllocationConstraints:
 
 #Solve the component allocation problem
 problem = AllocationProblem(R, T, alloc=alloc, anti_alloc=anti_alloc, w=w)
-res = ILP().setup(problem, verbose=False).solve()
+res = MultiObjectiveILP().setup(problem, verbose=False).solve()
+# F = res.F
+# F_norm = normalize(F)
+# ideal = F.min(axis=0)
+# nadir = F.max(axis=0)
+
+# labels = ["CPU", "Memory", "Power"]
+
+# Scatter(labels=labels).add(F, facecolor="none", edgecolor="red").show()
 
 for e in res.pop:
-        print("System {}".format(model_root.ID))
-        print(f"CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')}")
+    print("System {}".format(model_root.ID))
+    print(f"CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')} ")
 
 #Output the solution set in the file named solutionSet_0.model
 resource = rset.get_resource(URI('solutionSet.ecore'))
 root = resource.contents[0]
 A = root.getEClassifier('SolutionSet')
 a_instance = A()
-
 for e in res.pop:
     sT = root.getEClassifier('Solution')
     s_instance = sT()
@@ -98,6 +107,6 @@ for e in res.pop:
         s_instance.mappings.append(mapping_instance)
 
 rset = ResourceSet()
-resource = rset.create_resource(URI('../resources/solutionSet_8.model'))
+resource = rset.create_resource(URI('../resources/solutionSet_8_mo.model'))
 resource.append(a_instance)
 resource.save()
