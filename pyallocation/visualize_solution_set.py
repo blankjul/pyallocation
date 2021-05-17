@@ -10,7 +10,7 @@ rset = ResourceSet()
 resource = rset.get_resource(URI('componentAllocation2.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/system_n8.model'))
+resource = rset.get_resource(URI('../resources/Model2_smada.model'))
 model_root = resource.contents[0]
 
 components = model_root.components
@@ -42,7 +42,7 @@ R = []
 for unit in units:
     r = []
     for i in range(l):
-        r.append(int(float(getResourceAvailability(unit, resources[i]))))
+        r.append(float(getResourceAvailability(unit, resources[i])))
     R.append(r)
 R = np.array(R)
 
@@ -60,7 +60,7 @@ for component in components:
     for unit in units:
         res = []
         for resource in resources:
-            res.append(int(float(getResourceConsumption(unit, resource, component))))
+            res.append(float(getResourceConsumption(unit, resource, component)))
         T.append(res)
 T = np.swapaxes(np.array(T), 0, 1)
 T = T.reshape((l, n, m))
@@ -118,7 +118,7 @@ def check_alloc_and_anti_allo(x):
 resource = rset.get_resource(URI('solutionSet.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/solutionSet_8_mo.model'))
+resource = rset.get_resource(URI('../resources/solutionSet_smada_mo2.model'))
 model_root = resource.contents[0]
 solutions = model_root.solutions
 Fs=[]

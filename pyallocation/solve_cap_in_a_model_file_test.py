@@ -1,34 +1,15 @@
 import numpy as np
-import argparse
 from pyecore.resources import ResourceSet, URI
+
 from pyallocation.problem import AllocationProblem
 from pyallocation.solvers.ilp import ILP
-
-# Create the parser
-my_parser = argparse.ArgumentParser(description='Solve a component allocation problem')
-
-# Add the arguments
-my_parser.add_argument('source_model',
-                       metavar='source_model',
-                       type=str,
-                       help='the path to the source model')
-
-my_parser.add_argument('target_model',
-                       metavar='target_model',
-                       type=str,
-                       help='the path to the target model')
-
-# Execute the parse_args() method
-args = my_parser.parse_args()
-source_model = args.source_model
-target_model = args.target_model
 
 #Read the input model file named system_n0.model
 rset = ResourceSet()
 resource = rset.get_resource(URI('componentAllocation2.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI(source_model))
+resource = rset.get_resource(URI('../resources/Model1_smada.model'))
 model_root = resource.contents[0]
 
 components = model_root.components
@@ -117,6 +98,6 @@ for e in res.pop:
         s_instance.mappings.append(mapping_instance)
 
 rset = ResourceSet()
-resource = rset.create_resource(URI(target_model))
+resource = rset.create_resource(URI('../resources/solutionSet_8.model'))
 resource.append(a_instance)
 resource.save()

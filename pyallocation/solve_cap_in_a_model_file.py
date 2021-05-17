@@ -9,7 +9,7 @@ rset = ResourceSet()
 resource = rset.get_resource(URI('componentAllocation2.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/system_n8.model'))
+resource = rset.get_resource(URI('../resources/system_n5.model'))
 model_root = resource.contents[0]
 
 components = model_root.components
@@ -98,6 +98,6 @@ for e in res.pop:
         s_instance.mappings.append(mapping_instance)
 
 rset = ResourceSet()
-resource = rset.create_resource(URI('../resources/solutionSet_8.model'))
+resource = rset.create_resource(URI('../resources/solutionSet_5.model'))
 resource.append(a_instance)
 resource.save()

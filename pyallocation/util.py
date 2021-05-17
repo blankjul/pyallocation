@@ -7,7 +7,8 @@ def calc_consumed(T, x):
     for j in range(len(x)):
         c = x[j]
         if c >= 0:
-            C[c] += T[:, j, c]
+            np.add(C[c], T[:, j, c], out=C[c], casting="unsafe")
+            #C[c] += T[:, j, c]
     return C
 
 
