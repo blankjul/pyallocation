@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<solutionSet:SolutionSet xmlns:xmi="http://www.omg.org/XMI" xmlns:solutionSet="http://www.example.org/solutionSet" xmi:version="2.0">
+  <solutions>
+    <mappings compName="comp1" unitName="unit1"/>
+    <mappings compName="comp2" unitName="unit3"/>
+    <mappings compName="comp3" unitName="unit1"/>
+    <mappings compName="com4" unitName="unit1"/>
+    <mappings compName="comp5" unitName="unit1"/>
+    <mappings compName="comp6" unitName="unit4"/>
+    <mappings compName="comp7" unitName="unit4"/>
+    <mappings compName="comp8" unitName="unit2"/>
+    <mappings compName="comp9" unitName="unit2"/>
+    <mappings compName="comp10" unitName="unit3"/>
+    <mappings compName="comp11" unitName="unit2"/>
+  </solutions>
+</solutionSet:SolutionSet>

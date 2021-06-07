@@ -10,7 +10,7 @@ rset = ResourceSet()
 resource = rset.get_resource(URI('componentAllocation2.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/Model2_smada.model'))
+resource = rset.get_resource(URI('../resources/system_n9_no_constraints.model'))
 model_root = resource.contents[0]
 
 components = model_root.components
@@ -118,7 +118,7 @@ def check_alloc_and_anti_allo(x):
 resource = rset.get_resource(URI('solutionSet.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/solutionSet_smada_mo2.model'))
+resource = rset.get_resource(URI('../resources/solutionSet_9_no_constraints_multi.model'))
 model_root = resource.contents[0]
 solutions = model_root.solutions
 Fs=[]
