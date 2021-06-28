@@ -101,6 +101,7 @@ class ILP(Algorithm):
 
         opt = solve(*define(T, R, w, alloc=alloc, anti_alloc=anti_alloc), verbose=self.verbose)
         pop = Population.create(Individual(X=opt, w=w))
+ 
         self.evaluator.eval(problem, pop)
 
         # self.pop = DefaultDuplicateElimination(func=lambda pop: pop.get("F")).do(pop)
