@@ -6,6 +6,7 @@ from pymoo.factory import get_decision_making
 from pymoo.configuration import get_pymoo
 from pyallocation.problem import AllocationProblem
 from pyallocation.util import calc_consumed,calc_obj
+from pymoo.factory import get_visualization
 import argparse
 
 # Create the parser
@@ -97,6 +98,9 @@ anti_alloc = []
 for antiAllocationConstraint in antiAllocationConstraints:
     anti_alloc.append( (components.index(antiAllocationConstraint.component) , units.index(antiAllocationConstraint.unit) )) 
 
+W = []
+for i in range(l):
+    W.append(model_root.tradeOffvector[i].weight)
 
 def getF(x):
     FL = []
@@ -160,14 +164,14 @@ for i,s in enumerate(solutions):
 
 labels = [res.resName for res in resources]
 
-#print(Fs)
-dm = get_decision_making("high-tradeoff")
+
+weights = np.array(W)
+print(weights)
 x = np.reshape(Fs, (len(Fs), len(labels)))
 
-I = dm.do(x)
-print(I)
-plot = Scatter(labels=labels)
-for f in Fs:
-        plot.add(f, facecolor="none", edgecolor="red")
-plot.add(x[I], color="orange", s=50)
+a, pseudo_weights = get_decision_making("pseudo-weights", weights).do(x, return_pseudo_weights=True)
+
+plot = get_visualization("petal", bounds=(0, 0.5), reverse=False,labels=labels)
+plot.add(x[[a]])
+print(solutions[a].id)
 plot.show()
