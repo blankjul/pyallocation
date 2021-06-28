@@ -4,13 +4,33 @@ from pymoo.util.normalization import normalize
 from pymoo.visualization.scatter import Scatter
 from pyallocation.problem import AllocationProblem
 from pyallocation.util import calc_consumed,calc_obj
+import argparse
 
-#Read the input model file named system_n0.model
+# Create the parser
+my_parser = argparse.ArgumentParser(description='Solve a component allocation problem')
+
+# Add the arguments
+my_parser.add_argument('source_model',
+                       metavar='source_model',
+                       type=str,
+                       help='the path to the source model')
+
+my_parser.add_argument('solution_set_model',
+                       metavar='solution_set_model',
+                       type=str,
+                       help='the path to the solution set model')
+
+# Execute the parse_args() method
+args = my_parser.parse_args()
+source_model = args.source_model
+solution_set_model = args.solution_set_model
+
+#Read the input model file
 rset = ResourceSet()
 resource = rset.get_resource(URI('componentAllocation2.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/system_n9_no_constraints.model'))
+resource = rset.get_resource(URI(source_model))
 model_root = resource.contents[0]
 
 components = model_root.components
@@ -118,7 +138,7 @@ def check_alloc_and_anti_allo(x):
 resource = rset.get_resource(URI('solutionSet.ecore'))
 mm_root = resource.contents[0]
 rset.metamodel_registry[mm_root.nsURI] = mm_root
-resource = rset.get_resource(URI('../resources/solutionSet_9_no_constraints_multi.model'))
+resource = rset.get_resource(URI(solution_set_model))
 model_root = resource.contents[0]
 solutions = model_root.solutions
 Fs=[]
@@ -128,7 +148,6 @@ for i,s in enumerate(solutions):
     mappings = s.mappings
     st = ""
     for m in mappings:
-        #print(m.compName+" "+m.unitName)
         st += m.unitName +" "
         x.append(units_d[m.unitName])
     print(st)
@@ -142,8 +161,3 @@ plot = Scatter(labels=labels)
 for f in Fs:
         plot.add(f, facecolor="none", edgecolor="red")
 plot.show()
-
-
-
-
-
