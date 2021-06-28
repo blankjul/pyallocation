@@ -32,13 +32,13 @@ This one solves single-objective component allocation problems.
 
 Usage: python .\solve\_cap\_single\_objective.py ..\resources\system\_n1.model ..\resources\solutionSet\_1.model
 
-1. solve\_cap\_multi\_objective.py
+2. solve\_cap\_multi\_objective.py
 
 This one solves multi-objective component allocation problems.
 
 Usage: python .\solve\_cap\_multi\_objective.py ..\resources\system\_n1.model ..\resources\solutionSet\_1\_mo.model
 
-1. visualize\_solution\_set.py
+3. visualize\_solution\_set.py
 
 This one plots the solution set on a 3D scatter plot. In the plot, the high trade-off point(s) are shown in orange.
 
@@ -46,13 +46,13 @@ Usage: python .\visualize\_solution\_set.py ..\resources\system\_n1.model ..\res
 
 **TO DO:** We need to label each solution point in the objective space with the corresponding solution id.
 
-1. visualize\_a\_single\_solution.py
+4. visualize\_a\_single\_solution.py
 
 This one visualizes a single solution using a Petal Diagram.
 
 Usage: python .\visualize\_a\_single\_solution.py ..\resources\system\_n1.model ..\resources\solutionSet\_1\_mo.model 10
 
-1. visualize\_solution\_set\_Pseudo\_Weights.py
+5. visualize\_solution\_set\_Pseudo\_Weights.py
 
 This one visualizes the solution obtained using the pseudo-weight vector approach.
 
