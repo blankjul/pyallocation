@@ -20,7 +20,7 @@ This version of the program assumes a variable number of resources (i.e., the up
 Transformation
 ----------
 
-
+.. role:: red
 ----------
 Solver
 ----------
@@ -30,7 +30,7 @@ The main Python scripts are:
 
 This one solves single-objective component allocation problems.
 
-Usage: python .\\solve\_cap\_single\_objective.py ..\\resources\\system\_n1.model ..\\resources\\solutionSet\_1.model
+:red:'Usage': python .\\solve\_cap\_single\_objective.py ..\\resources\\system\_n1.model ..\\resources\\solutionSet\_1.model
 
 2. solve\_cap\_multi\_objective.py
 
