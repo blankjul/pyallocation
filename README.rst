@@ -30,13 +30,13 @@ The main Python scripts are:
 
 This one solves single-objective component allocation problems.
 
-Usage: python .\solve\_cap\_single\_objective.py ..\resources\system\_n1.model ..\resources\solutionSet\_1.model
+Usage: python .\\solve\_cap\_single\_objective.py ..\\resources\system\_n1.model ..\\resources\solutionSet\_1.model
 
 2. solve\_cap\_multi\_objective.py
 
 This one solves multi-objective component allocation problems.
 
-Usage: python .\solve\_cap\_multi\_objective.py ..\resources\system\_n1.model ..\resources\solutionSet\_1\_mo.model
+Usage: python .\\solve\_cap\_multi\_objective.py ..\\resources\system\_n1.model ..\\resources\solutionSet\_1\_mo.model
 
 3. visualize\_solution\_set.py
 
