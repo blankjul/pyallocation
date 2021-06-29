@@ -42,7 +42,7 @@ Usage: python .\\solve\_cap\_multi\_objective.py ..\\resources\system\_n1.model 
 
 This one plots the solution set on a 3D scatter plot. In the plot, the high trade-off point(s) are shown in orange.
 
-Usage: python .\visualize\_solution\_set.py ..\resources\system\_n1.model ..\resources\solutionSet\_1\_mo.model
+Usage: python .\\visualize\_solution\_set.py ..\\resources\system\_n1.model ..\\resources\solutionSet\_1\_mo.model
 
 **TO DO:** We need to label each solution point in the objective space with the corresponding solution id.
 
@@ -50,13 +50,13 @@ Usage: python .\visualize\_solution\_set.py ..\resources\system\_n1.model ..\res
 
 This one visualizes a single solution using a Petal Diagram.
 
-Usage: python .\visualize\_a\_single\_solution.py ..\resources\system\_n1.model ..\resources\solutionSet\_1\_mo.model 10
+Usage: python .\\visualize\_a\_single\_solution.py ..\\resources\system\_n1.model ..\\resources\solutionSet\_1\_mo.model 10
 
 5. visualize\_solution\_set\_Pseudo\_Weights.py
 
 This one visualizes the solution obtained using the pseudo-weight vector approach.
 
-Usage: python .\visualize\_solution\_set\_Pseudo\_Weights.py ..\resources\system\_n1.model ..\resources\solutionSet\_1\_mo.model
+Usage: python .\\visualize\_solution\_set\_Pseudo\_Weights.py ..\\resources\system\_n1.model ..\\resources\solutionSet\_1\_mo.model
 
 ----------
 Postprocessing
