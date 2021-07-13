@@ -7,6 +7,7 @@ from pymoo.configuration import get_pymoo
 from pyallocation.problem import AllocationProblem
 from pyallocation.util import calc_consumed,calc_obj
 import argparse
+import sys
 
 # Create the parser
 my_parser = argparse.ArgumentParser(description='Solve a component allocation problem')
@@ -144,6 +145,7 @@ resource = rset.get_resource(URI(solution_set_model))
 model_root = resource.contents[0]
 solutions = model_root.solutions
 Fs=[]
+l_allocs = []
 for i,s in enumerate(solutions):
     x=[]
     print("solution "+str(i))
@@ -157,17 +159,45 @@ for i,s in enumerate(solutions):
     check_alloc_and_anti_allo(x)
     F = getF(x)
     Fs.append(F)
+    l_allocs.append(i)
+
+if l!= 2 and l!=3:
+    print('Number of resources shall be two or three.')
+    sys.exit()
 
 labels = [res.resName for res in resources]
 
-#print(Fs)
+
 dm = get_decision_making("high-tradeoff")
 x = np.reshape(Fs, (len(Fs), len(labels)))
 
-I = dm.do(x)
-print(I)
+
+
 plot = Scatter(labels=labels)
-for f in Fs:
+
+d_solutions = {}
+
+for i,f in enumerate(Fs):
         plot.add(f, facecolor="none", edgecolor="red")
-plot.add(x[I], color="orange", s=50)
+        st = f.tobytes()
+        if st not in d_solutions.keys():
+            d_solutions[st] = 'Solutions '
+        d_solutions[st]+=str(l_allocs[i])+','
+
+for s in d_solutions:
+    plot.do()
+    sol = np.frombuffer(s)
+    tu = tuple(sol)
+    if len(tu) == 2:
+        plot.ax.text(tu[0],tu[1],d_solutions[s])
+    elif len(tu) == 3:
+        plot.ax.text(tu[0],tu[1],tu[2],d_solutions[s])
+
+try:
+    I = dm.do(x)
+    print(I)
+    plot.add(x[I], color="orange", s=50)
+except:
+    pass
+
 plot.show()

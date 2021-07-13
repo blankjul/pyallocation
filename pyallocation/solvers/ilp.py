@@ -131,8 +131,9 @@ class MultiObjectiveILP(ILP):
         problem = copy(self.problem)
 
         W = self.W
+        #print('xxxx'+str(problem.T.shape[0]))
         if W is None:
-            W = get_reference_directions("das-dennis", 3, n_partitions=12)
+            W = get_reference_directions("das-dennis", problem.T.shape[0], n_partitions=12)
 
         for w in W:
             problem.w = w

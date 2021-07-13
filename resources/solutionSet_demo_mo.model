@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<solutionSet:SolutionSet xmlns:xmi="http://www.omg.org/XMI" xmlns:solutionSet="http://www.example.org/solutionSet" xmi:version="2.0">
+  <solutions id="1">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="2">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="3">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="4">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="5">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="6">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="7">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="8">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="9">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="10">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="11">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="12">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+  <solutions id="13">
+    <mappings compName="comp1" unitName="unit2"/>
+    <mappings compName="comp2" unitName="unit1"/>
+  </solutions>
+</solutionSet:SolutionSet>
