@@ -197,6 +197,7 @@ try:
     I = dm.do(x)
     print(I)
     plot.add(x[I], color="orange", s=50)
+    plot.do()
 except:
     pass
 
