@@ -52,16 +52,14 @@ def example_problem():
     # F = np.array([0.1557, 0.0856, 0.7095, 0.0491])
     w = np.array([0.1557, 0.0856, 0.7095])
     # w = None
-    
 
     problem = AllocationProblem(R, T, w=w)
 
     return problem
 
 
-def load_problem(k):
-
-    root = ET.parse(f'../resources/System{k}.model').getroot()
+def load_problem(k, prefix="System"):
+    root = ET.parse(f'../resources/{prefix}{k}.model').getroot()
 
     avail_attrs = ["cpuAvail", "memAvailable", "powerAvail"]
     constr_attrs = ["cpuCons", "memoryCons", "powerCons"]
@@ -71,14 +69,12 @@ def load_problem(k):
     for unit in root.findall("compUnits"):
         R.append([int(float(unit.attrib[a])) for a in avail_attrs])
     R = np.array(R)
-    
 
     T = []
     for unit in root.findall("resConsumptions"):
         T.append([int(float(unit.attrib[a])) for a in constr_attrs])
-    
+
     T = np.swapaxes(np.array(T), 0, 1)
-    
 
     m, p = R.shape
     n = int(T.shape[1] / m)
@@ -86,7 +82,6 @@ def load_problem(k):
     T = T.reshape((p, n, m))
 
     w = np.array([float(root.find("tradeOffvector").attrib[e]) for e in weight_attrs])
-    
 
     get_constr_component = lambda alloc: int(alloc.attrib["component"].replace("comp", ""))
     get_constr_unit = lambda alloc: int(alloc.attrib["compUnit"].replace("compUnit", ""))
@@ -94,12 +89,10 @@ def load_problem(k):
     alloc = []
     for e in root.findall("allocationConstraints"):
         alloc.append((get_constr_component(e), get_constr_unit(e)))
-    
 
     anti_alloc = []
     for e in root.findall("antiAllocationConstraints"):
         anti_alloc.append((get_constr_component(e), get_constr_unit(e)))
-    
 
     problem = AllocationProblem(R, T, alloc=alloc, anti_alloc=anti_alloc, w=w)
 

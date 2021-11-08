@@ -2,6 +2,7 @@ import pickle
 
 from pyallocation.loader import load_problem
 from pyallocation.solvers.ilp import MultiObjectiveILP
+from pymoo.core.duplicate import DefaultDuplicateElimination
 from pymoo.util.normalization import normalize
 from pymoo.visualization.pcp import PCP
 from pymoo.visualization.scatter import Scatter
@@ -11,12 +12,16 @@ from pymoo.visualization.scatter import Scatter
 # print(f"Example | CV = {e.CV[0]} | F = {e.F} | X = {e.X} | w={e.get('w')} ")
 
 
-# for k in range(8):
-k = 8
-problem = load_problem(k)
+for k in range(10):
+# k = 3
+    problem = load_problem(k)
 
-res = MultiObjectiveILP().setup(problem, verbose=False).run()
-pickle.dump(res, open("solutions.dat", "wb"))
+    res = MultiObjectiveILP().setup(problem, verbose=False).run()
+    pickle.dump(res, open("solutions.dat", "wb"))
+
+    opt = DefaultDuplicateElimination().do(res.pop)
+
+    print(f"System {k}: {len(opt)} solutions.")
 
 res = pickle.load(open("solutions.dat", "rb"))
 
