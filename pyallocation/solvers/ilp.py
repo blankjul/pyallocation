@@ -4,16 +4,18 @@ from copy import copy
 
 import numpy as np
 from ortools.linear_solver import pywraplp
+
+from pymoo.core.evaluator import Evaluator
 from pymoo.factory import get_reference_directions
-from pymoo.model.algorithm import Algorithm
-from pymoo.model.individual import Individual
-from pymoo.model.population import Population
+from pymoo.core.algorithm import Algorithm
+from pymoo.core.individual import Individual
+from pymoo.core.population import Population
 from pymoo.util.termination.no_termination import NoTermination
 
 from pyallocation.problem import AllocationProblem
 
 
-def define(T, R, w, alloc=None, anti_alloc=None):
+def define(T, R, w, alloc=None, anti_alloc=None, ideal=None, nadir=None):
     p, n, m = T.shape
 
     solver = pywraplp.Solver.CreateSolver('SCIP')
@@ -42,7 +44,17 @@ def define(T, R, w, alloc=None, anti_alloc=None):
     for i, j in anti_alloc:
         solver.Add(x[i][j] == 0)
 
-    solver.Minimize((T * x).sum(axis=1).sum(axis=1) @ w)
+    F = (T * x).sum(axis=1).sum(axis=1)
+
+    if ideal is not None:
+        F = F - ideal
+
+        if nadir is not None:
+            F = F / (nadir - ideal)
+
+    f = F @ w
+
+    solver.Minimize(f)
 
     return solver, x
 
@@ -87,25 +99,19 @@ class ILP(Algorithm):
         super().__init__(**kwargs)
         self.default_termination = NoTermination()
 
-    def setup(self, problem, **kwargs):
-        super().setup(problem, **kwargs)
+    def _setup(self, problem, **kwargs):
         assert isinstance(problem, AllocationProblem)
-        return self
 
-    def _initialize(self):
-        self._next()
-
-    def _next(self):
+    def _initialize_advance(self, **kwargs):
         problem = self.problem
         T, R, alloc, anti_alloc, w = problem.T, problem.R, problem.alloc, problem.anti_alloc, problem.w
+        ideal, nadir = problem.ideal, problem.nadir
 
-        opt = solve(*define(T, R, w, alloc=alloc, anti_alloc=anti_alloc), verbose=self.verbose)
+        opt = solve(*define(T, R, w, alloc=alloc, anti_alloc=anti_alloc, ideal=ideal, nadir=nadir), verbose=self.verbose)
+
         pop = Population.create(Individual(X=opt, w=w))
         self.evaluator.eval(problem, pop)
-
-        # self.pop = DefaultDuplicateElimination(func=lambda pop: pop.get("F")).do(pop)
         self.pop = pop
-
         self.termination.force_termination = True
 
 
@@ -116,18 +122,33 @@ class MultiObjectiveILP(ILP):
         self.default_termination = NoTermination()
         self.W = W
 
-    def setup(self, problem, **kwargs):
-        super().setup(problem, **kwargs)
+    def _setup(self, problem, **kwargs):
         assert isinstance(problem, AllocationProblem)
-        return self
 
-    def _initialize(self):
-        self._next()
-
-    def _next(self):
+    def _initialize_advance(self, **kwargs):
         pop = Population()
 
         problem = copy(self.problem)
+
+
+        extremes =  Population()
+
+        W = np.eye(3)
+        W[W == 0] = 1e12
+
+        for w in W:
+            problem.w = w
+            ret = ILP().setup(problem).run().pop
+            extremes = Population.merge(extremes, ret)
+
+        problem.w = None
+        Evaluator().eval(problem, extremes, skip_already_evaluated=False)
+
+        F = extremes.get("F")
+        ideal, nadir = F.min(axis=0), F.max(axis=0)
+
+        problem.ideal = ideal
+        problem.nadir = nadir
 
         W = self.W
         if W is None:
@@ -135,7 +156,7 @@ class MultiObjectiveILP(ILP):
 
         for w in W:
             problem.w = w
-            res = ILP().setup(problem).solve()
+            res = ILP().setup(problem).run()
             pop = Population.merge(pop, res.opt)
             problem.w = None
             F = problem.evaluate(pop.get("X"), return_values_of=["F"])

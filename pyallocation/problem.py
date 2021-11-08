@@ -1,11 +1,11 @@
 import numpy as np
-from pymoo.model.problem import Problem
 
 from pyallocation.function_loader import FunctionLoader
 from pyallocation.util import calc_obj, calc_constr
+from pymoo.core.problem import ElementwiseProblem
 
 
-class AllocationProblem(Problem):
+class AllocationProblem(ElementwiseProblem):
 
     def __init__(self, R, T, alloc=None, anti_alloc=None, w=None, **kwargs):
         self.R = R
@@ -14,6 +14,8 @@ class AllocationProblem(Problem):
         self.anti_alloc = anti_alloc
         self.w = w
         self.func_calc_consumed = FunctionLoader.get_instance().load("calc_consumed")
+        self.ideal = None
+        self.nadir = None
 
         p, n, m = T.shape
         n_var = n
@@ -26,7 +28,7 @@ class AllocationProblem(Problem):
         xl = np.full(n_var, 0)
         xu = np.full(n_var, m - 1)
 
-        super().__init__(n_var=n_var, n_obj=n_obj, n_constr=p * m, xl=xl, xu=xu, elementwise_evaluation=True, **kwargs)
+        super().__init__(n_var=n_var, n_obj=n_obj, n_constr=p * m, xl=xl, xu=xu, **kwargs)
 
     def _evaluate(self, x, out, *args, **kwargs):
         R, T, w = self.R, self.T, self.w

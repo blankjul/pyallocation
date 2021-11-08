@@ -1,6 +1,6 @@
 import numpy as np
-from pymoo.model.algorithm import Algorithm
-from pymoo.model.population import Population
+from pymoo.core.algorithm import Algorithm
+from pymoo.core.population import Population
 from pymoo.util.termination.no_termination import NoTermination
 
 from pyallocation.allocation import FastAllocation

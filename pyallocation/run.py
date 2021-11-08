@@ -1,15 +1,10 @@
 import pickle
 
+from pyallocation.loader import load_problem
+from pyallocation.solvers.ilp import MultiObjectiveILP
 from pymoo.util.normalization import normalize
 from pymoo.visualization.pcp import PCP
-from pymoo.visualization.petal import Petal
-from pymoo.visualization.radar import Radar
 from pymoo.visualization.scatter import Scatter
-
-from pyallocation.loader import example_problem, load_problem
-from pyallocation.solvers.exhaustive import ExhaustiveAlgorithm
-from pyallocation.solvers.ilp import ILP, EpsilonConstraintILP
-from pyallocation.solvers.ilp import MultiObjectiveILP
 
 # problem = example_problem()
 # e = ExhaustiveAlgorithm().setup(problem).solve().opt[0]
@@ -20,8 +15,8 @@ from pyallocation.solvers.ilp import MultiObjectiveILP
 k = 8
 problem = load_problem(k)
 
-# res = MultiObjectiveILP().setup(problem, verbose=False).solve()
-# pickle.dump(res, open("solutions.dat", "wb"))
+res = MultiObjectiveILP().setup(problem, verbose=False).run()
+pickle.dump(res, open("solutions.dat", "wb"))
 
 res = pickle.load(open("solutions.dat", "rb"))
 
@@ -32,21 +27,34 @@ nadir = F.max(axis=0)
 
 labels = ["CPU", "Memory", "Power"]
 
-Scatter(labels=labels).add(F, facecolor="none", edgecolor="red").show()
+# Scatter(labels=labels).add(F, facecolor="none", edgecolor="red").show()
 
 s = 15
 
-# plot = PCP(labels=labels)
-# plot.set_axis_style(color="grey", alpha=0.5)
-# plot.add(F, color="grey", alpha=0.3)
-# plot.add(F[s], linewidth=5, color="red")
-# plot.show()
-#
 
-
-plot = Petal(bounds=(0, 1), reverse=False, labels=labels)
-plot.add(F_norm[s])
+plot = Scatter(labels=labels[:3])
+plot.add(F[:, :3], color="grey", alpha=0.3)
+plot.add(F[s, :3], color="red")
 plot.show()
+
+# plot.ax.text(x, y, z, '%s' % (label), size=20, zorder=1, color='k')
+# plot.ax.text(F[s, 0], F[s, 1], F[s, 2], "selected")
+
+# import matplotlib
+# matplotlib.pyplot.show()
+
+
+plot = PCP(labels=labels, legend=True)
+plot.set_axis_style(color="grey", alpha=0.5)
+plot.add(F, color="grey", alpha=0.3)
+plot.add(F[s], linewidth=5, color="red", label="Solution X")
+plot.show()
+
+
+#
+# plot = Petal(bounds=(0, 1), reverse=False, labels=labels, title="Solution X")
+# plot.add(F_norm[s])
+# plot.show()
 
 # plot = Radar(bounds=(0, 1), normalize_each_objective=False)
 # plot.add(F_norm[s])
