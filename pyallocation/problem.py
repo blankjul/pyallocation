@@ -33,6 +33,15 @@ class AllocationProblem(ElementwiseProblem):
         R, T, w = self.R, self.T, self.w
         C = self.func_calc_consumed(T, x)
         F = calc_obj(C, w)
-        G = calc_constr(C, R)
+
+        G = list(calc_constr(C, R))
+
+        for pos, val in self.alloc:
+            G.append(int(x[pos] != val))
+
+        for pos, val in self.anti_alloc:
+            G.append(int(x[pos] == val))
+
+        G = np.array(G)
 
         out["F"], out["G"] = F.astype(np.float), G.astype(np.float)

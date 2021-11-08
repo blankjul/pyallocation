@@ -2,7 +2,10 @@ import pickle
 
 from pyallocation.loader import load_problem
 from pyallocation.solvers.ilp import MultiObjectiveILP
+from pymoo.algorithms.moo.nsga2 import NSGA2
 from pymoo.core.duplicate import DefaultDuplicateElimination
+from pymoo.factory import get_algorithm, get_sampling, get_crossover, get_mutation
+from pymoo.optimize import minimize
 from pymoo.util.normalization import normalize
 from pymoo.visualization.pcp import PCP
 from pymoo.visualization.scatter import Scatter
@@ -13,8 +16,30 @@ from pymoo.visualization.scatter import Scatter
 
 
 for k in range(10):
-# k = 3
+    # k = 3
     problem = load_problem(k)
+    problem.w = None
+
+    method = NSGA2(pop_size=100,
+                   sampling=get_sampling("int_random"),
+                   crossover=get_crossover("int_sbx", prob=1.0, eta=3.0),
+                   mutation=get_mutation("int_pm", eta=3.0),
+                   eliminate_duplicates=True,
+                   )
+
+    res = minimize(problem,
+                   method,
+                   termination=('n_gen', 100),
+                   seed=1,
+                   verbose=True,
+                   save_history=True
+                   )
+
+    opt = DefaultDuplicateElimination(func=lambda pop: pop.get("F")).do(res.opt)
+
+    print("Best solution found: %s" % res.X)
+    print("Function value: %s" % res.F)
+    print("Constraint violation: %s" % res.CV)
 
     res = MultiObjectiveILP().setup(problem, verbose=False).run()
     pickle.dump(res, open("solutions.dat", "wb"))
@@ -36,7 +61,6 @@ labels = ["CPU", "Memory", "Power"]
 
 s = 15
 
-
 plot = Scatter(labels=labels[:3])
 plot.add(F[:, :3], color="grey", alpha=0.3)
 plot.add(F[s, :3], color="red")
@@ -54,7 +78,6 @@ plot.set_axis_style(color="grey", alpha=0.5)
 plot.add(F, color="grey", alpha=0.3)
 plot.add(F[s], linewidth=5, color="red", label="Solution X")
 plot.show()
-
 
 #
 # plot = Petal(bounds=(0, 1), reverse=False, labels=labels, title="Solution X")
