@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<solutionSet:SolutionSet xmlns:xmi="http://www.omg.org/XMI" xmlns:solutionSet="http://www.example.org/solutionSet" xmi:version="2.0">
+  <solutions>
+    <mappings compName="c1" unitName="d7"/>
+    <mappings compName="c2" unitName="d6"/>
+    <mappings compName="c3" unitName="d6"/>
+    <mappings compName="c4" unitName="d6"/>
+  </solutions>
+</solutionSet:SolutionSet>

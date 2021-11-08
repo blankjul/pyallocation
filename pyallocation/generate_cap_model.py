@@ -6,7 +6,7 @@ root = resource.contents[0]
 A = root.getEClassifier('AllocationProblem')
 a_instance = A()
 
-components = ['comp1','comp2','comp3','com4','comp5','comp6','comp7','comp8','comp9','comp10','comp11']
+components = ['comp1','comp2']
 n=len(components)
 for c in components:
     componentT = root.getEClassifier('Component')
@@ -15,7 +15,7 @@ for c in components:
     a_instance.components.append(component_instance)
 
 
-units = ['unit1','unit2','unit3','unit4']
+units = ['unit1','unit2']
 m = len(units)
 for u in units:
     unitT = root.getEClassifier('Unit')
@@ -23,7 +23,7 @@ for u in units:
     unit_instance.unitName = u
     a_instance.units.append(unit_instance)
 
-resources = ['cpu','memory','power']
+resources = ['res1','res2',]
 l = len(resources)
 for r in resources:
     resourceT = root.getEClassifier('Resource')
@@ -41,7 +41,7 @@ def generate_TradeOffWeight(F):
         a_instance.tradeOffvector.append(tradeOffeight_instance)
 
 
-F = [0.1557, 0.0856, 0.7095]
+F = [0.75, 0.25]
 generate_TradeOffWeight(F)
 
 def generate_Resource_Availabilities(R):
@@ -54,10 +54,8 @@ def generate_Resource_Availabilities(R):
             resourceAvailability_instance.resource = a_instance.resources[r]
             a_instance.resourceavailability.append(resourceAvailability_instance)
 
-R = [[100, 256, 50],
-	[150, 640, 25],
-	[150, 640, 25],
-	[100, 256, 15]]
+R = [[14,22],
+	[20,40]]
 generate_Resource_Availabilities(R)
 
 def generate_Resource_Consumptions(T):
@@ -72,41 +70,13 @@ def generate_Resource_Consumptions(T):
                 resourceConsumption_instance.resource = a_instance.resources[res]
                 a_instance.resourceconsumption.append(resourceConsumption_instance)
 
-T       = [[[10,90,90,55],
-        [50,20,20,72],
-        [30,20,20,72],
-        [10,40,40,72],
-        [20,40,40,72],
-        [20,50,50,55],
-        [90,20,20,15],
-        [20,10,10,70],
-        [20,10,10,70],
-        [20,15,15,70],
-        [90,10,10,33]],
+T       = [
+        [[10,7],
+        [5,12]],
             
-        [[48,256,256,128],
-        [128,256,256,148],
-        [64,256,256,148],
-        [48,168,168,148],
-        [64,168,168,148],
-        [64,168,168,64],
-        [168,128,128,64],
-        [148,96,96,148],
-        [48,32,32,148],
-        [48,32,32,148],
-        [168,64,64,96]],
-
-        [[2,18,18,11],
-        [10,4,4,14],
-        [6,4,4,14],
-        [2,8,8,14],
-        [4,8,8,14],
-        [4,10,10,11],
-        [18,4,4,3],
-        [4,2,2,14],
-        [4,2,2,14],
-        [4,3,3,14],
-        [18,2,2,7]]]
+        [[15,20],
+        [5,17]]
+        ]
 generate_Resource_Consumptions(T)
 
 
@@ -118,7 +88,7 @@ def generate_Allocation_Constraints(alloc):
         allocationconstraint_instance.unit = a_instance.units[unit]
         a_instance.allocationConstraints.append(allocationconstraint_instance)
 
-alloc = [(6,3)]
+alloc = []
 generate_Allocation_Constraints(alloc)
 
 def generate_AntiAllocation_Constraints(anti_alloc):
@@ -128,9 +98,9 @@ def generate_AntiAllocation_Constraints(anti_alloc):
         antiallocationconstraint_instance.component = a_instance.components[comp]
         antiallocationconstraint_instance.unit = a_instance.units[unit]
         a_instance.antiAllocationConstraints.append(antiallocationconstraint_instance)
-anti_alloc = [(3,0)]
+anti_alloc = []
 generate_AntiAllocation_Constraints(anti_alloc)
 
-resource = rset.create_resource(URI('inputModel_0.model'))
+resource = rset.create_resource(URI('../resources/inputModel_demo.model'))
 resource.append(a_instance)
 resource.save()

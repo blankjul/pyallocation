@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<componentAllocation2:AllocationProblem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:componentAllocation2="http://www.example.org/componentAllocation2" ID="System2">
+  <components compName="0" resourceconsumption="//@resourceconsumption.0 //@resourceconsumption.44 //@resourceconsumption.88 //@resourceconsumption.1 //@resourceconsumption.45 //@resourceconsumption.89 //@resourceconsumption.2 //@resourceconsumption.46 //@resourceconsumption.90 //@resourceconsumption.3 //@resourceconsumption.47 //@resourceconsumption.91"/>
+  <components compName="1" resourceconsumption="//@resourceconsumption.4 //@resourceconsumption.48 //@resourceconsumption.92 //@resourceconsumption.5 //@resourceconsumption.49 //@resourceconsumption.93 //@resourceconsumption.6 //@resourceconsumption.50 //@resourceconsumption.94 //@resourceconsumption.7 //@resourceconsumption.51 //@resourceconsumption.95"/>
+  <components compName="2" resourceconsumption="//@resourceconsumption.8 //@resourceconsumption.52 //@resourceconsumption.96 //@resourceconsumption.9 //@resourceconsumption.53 //@resourceconsumption.97 //@resourceconsumption.10 //@resourceconsumption.54 //@resourceconsumption.98 //@resourceconsumption.11 //@resourceconsumption.55 //@resourceconsumption.99"/>
+  <components compName="3" resourceconsumption="//@resourceconsumption.12 //@resourceconsumption.56 //@resourceconsumption.100 //@resourceconsumption.13 //@resourceconsumption.57 //@resourceconsumption.101 //@resourceconsumption.14 //@resourceconsumption.58 //@resourceconsumption.102 //@resourceconsumption.15 //@resourceconsumption.59 //@resourceconsumption.103"/>
+  <components compName="4" resourceconsumption="//@resourceconsumption.16 //@resourceconsumption.60 //@resourceconsumption.104 //@resourceconsumption.17 //@resourceconsumption.61 //@resourceconsumption.105 //@resourceconsumption.18 //@resourceconsumption.62 //@resourceconsumption.106 //@resourceconsumption.19 //@resourceconsumption.63 //@resourceconsumption.107"/>
+  <components compName="5" resourceconsumption="//@resourceconsumption.20 //@resourceconsumption.64 //@resourceconsumption.108 //@resourceconsumption.21 //@resourceconsumption.65 //@resourceconsumption.109 //@resourceconsumption.22 //@resourceconsumption.66 //@resourceconsumption.110 //@resourceconsumption.23 //@resourceconsumption.67 //@resourceconsumption.111"/>
+  <components compName="6" resourceconsumption="//@resourceconsumption.24 //@resourceconsumption.68 //@resourceconsumption.112 //@resourceconsumption.25 //@resourceconsumption.69 //@resourceconsumption.113 //@resourceconsumption.26 //@resourceconsumption.70 //@resourceconsumption.114 //@resourceconsumption.27 //@resourceconsumption.71 //@resourceconsumption.115"/>
+  <components compName="7" resourceconsumption="//@resourceconsumption.28 //@resourceconsumption.72 //@resourceconsumption.116 //@resourceconsumption.29 //@resourceconsumption.73 //@resourceconsumption.117 //@resourceconsumption.30 //@resourceconsumption.74 //@resourceconsumption.118 //@resourceconsumption.31 //@resourceconsumption.75 //@resourceconsumption.119"/>
+  <components compName="8" resourceconsumption="//@resourceconsumption.32 //@resourceconsumption.76 //@resourceconsumption.120 //@resourceconsumption.33 //@resourceconsumption.77 //@resourceconsumption.121 //@resourceconsumption.34 //@resourceconsumption.78 //@resourceconsumption.122 //@resourceconsumption.35 //@resourceconsumption.79 //@resourceconsumption.123"/>
+  <components compName="9" resourceconsumption="//@resourceconsumption.36 //@resourceconsumption.80 //@resourceconsumption.124 //@resourceconsumption.37 //@resourceconsumption.81 //@resourceconsumption.125 //@resourceconsumption.38 //@resourceconsumption.82 //@resourceconsumption.126 //@resourceconsumption.39 //@resourceconsumption.83 //@resourceconsumption.127"/>
+  <components compName="10" resourceconsumption="//@resourceconsumption.40 //@resourceconsumption.84 //@resourceconsumption.128 //@resourceconsumption.41 //@resourceconsumption.85 //@resourceconsumption.129 //@resourceconsumption.42 //@resourceconsumption.86 //@resourceconsumption.130 //@resourceconsumption.43 //@resourceconsumption.87 //@resourceconsumption.131"/>
+  <tradeOffvector resource="//@resources.0" weight="0.1557"/>
+  <tradeOffvector resource="//@resources.1" weight="0.0856"/>
+  <tradeOffvector resource="//@resources.2" weight="0.7095"/>
+  <units unitName="0" resourceavailability="//@resourceavailability.0 //@resourceavailability.4 //@resourceavailability.8" resourceconsumption="//@resourceconsumption.0 //@resourceconsumption.44 //@resourceconsumption.88 //@resourceconsumption.4 //@resourceconsumption.48 //@resourceconsumption.92 //@resourceconsumption.8 //@resourceconsumption.52 //@resourceconsumption.96 //@resourceconsumption.12 //@resourceconsumption.56 //@resourceconsumption.100 //@resourceconsumption.16 //@resourceconsumption.60 //@resourceconsumption.104 //@resourceconsumption.20 //@resourceconsumption.64 //@resourceconsumption.108 //@resourceconsumption.24 //@resourceconsumption.68 //@resourceconsumption.112 //@resourceconsumption.28 //@resourceconsumption.72 //@resourceconsumption.116 //@resourceconsumption.32 //@resourceconsumption.76 //@resourceconsumption.120 //@resourceconsumption.36 //@resourceconsumption.80 //@resourceconsumption.124 //@resourceconsumption.40 //@resourceconsumption.84 //@resourceconsumption.128"/>
+  <units unitName="1" resourceavailability="//@resourceavailability.1 //@resourceavailability.5 //@resourceavailability.9" resourceconsumption="//@resourceconsumption.1 //@resourceconsumption.45 //@resourceconsumption.89 //@resourceconsumption.5 //@resourceconsumption.49 //@resourceconsumption.93 //@resourceconsumption.9 //@resourceconsumption.53 //@resourceconsumption.97 //@resourceconsumption.13 //@resourceconsumption.57 //@resourceconsumption.101 //@resourceconsumption.17 //@resourceconsumption.61 //@resourceconsumption.105 //@resourceconsumption.21 //@resourceconsumption.65 //@resourceconsumption.109 //@resourceconsumption.25 //@resourceconsumption.69 //@resourceconsumption.113 //@resourceconsumption.29 //@resourceconsumption.73 //@resourceconsumption.117 //@resourceconsumption.33 //@resourceconsumption.77 //@resourceconsumption.121 //@resourceconsumption.37 //@resourceconsumption.81 //@resourceconsumption.125 //@resourceconsumption.41 //@resourceconsumption.85 //@resourceconsumption.129"/>
+  <units unitName="2" resourceavailability="//@resourceavailability.2 //@resourceavailability.6 //@resourceavailability.10" resourceconsumption="//@resourceconsumption.2 //@resourceconsumption.46 //@resourceconsumption.90 //@resourceconsumption.6 //@resourceconsumption.50 //@resourceconsumption.94 //@resourceconsumption.10 //@resourceconsumption.54 //@resourceconsumption.98 //@resourceconsumption.14 //@resourceconsumption.58 //@resourceconsumption.102 //@resourceconsumption.18 //@resourceconsumption.62 //@resourceconsumption.106 //@resourceconsumption.22 //@resourceconsumption.66 //@resourceconsumption.110 //@resourceconsumption.26 //@resourceconsumption.70 //@resourceconsumption.114 //@resourceconsumption.30 //@resourceconsumption.74 //@resourceconsumption.118 //@resourceconsumption.34 //@resourceconsumption.78 //@resourceconsumption.122 //@resourceconsumption.38 //@resourceconsumption.82 //@resourceconsumption.126 //@resourceconsumption.42 //@resourceconsumption.86 //@resourceconsumption.130"/>
+  <units unitName="3" resourceavailability="//@resourceavailability.3 //@resourceavailability.7 //@resourceavailability.11" resourceconsumption="//@resourceconsumption.3 //@resourceconsumption.47 //@resourceconsumption.91 //@resourceconsumption.7 //@resourceconsumption.51 //@resourceconsumption.95 //@resourceconsumption.11 //@resourceconsumption.55 //@resourceconsumption.99 //@resourceconsumption.15 //@resourceconsumption.59 //@resourceconsumption.103 //@resourceconsumption.19 //@resourceconsumption.63 //@resourceconsumption.107 //@resourceconsumption.23 //@resourceconsumption.67 //@resourceconsumption.111 //@resourceconsumption.27 //@resourceconsumption.71 //@resourceconsumption.115 //@resourceconsumption.31 //@resourceconsumption.75 //@resourceconsumption.119 //@resourceconsumption.35 //@resourceconsumption.79 //@resourceconsumption.123 //@resourceconsumption.39 //@resourceconsumption.83 //@resourceconsumption.127 //@resourceconsumption.43 //@resourceconsumption.87 //@resourceconsumption.131"/>
+  <allocationConstraints component="//@components.6" unit="//@units.3"/>
+  <antiAllocationConstraints unit="//@units.0" component="//@components.3"/>
+  <resources resName="cpu" resourceavailability="//@resourceavailability.0 //@resourceavailability.1 //@resourceavailability.2 //@resourceavailability.3" tradeoffweight="//@tradeOffvector.0" resourceconsumption="//@resourceconsumption.0 //@resourceconsumption.1 //@resourceconsumption.2 //@resourceconsumption.3 //@resourceconsumption.4 //@resourceconsumption.5 //@resourceconsumption.6 //@resourceconsumption.7 //@resourceconsumption.8 //@resourceconsumption.9 //@resourceconsumption.10 //@resourceconsumption.11 //@resourceconsumption.12 //@resourceconsumption.13 //@resourceconsumption.14 //@resourceconsumption.15 //@resourceconsumption.16 //@resourceconsumption.17 //@resourceconsumption.18 //@resourceconsumption.19 //@resourceconsumption.20 //@resourceconsumption.21 //@resourceconsumption.22 //@resourceconsumption.23 //@resourceconsumption.24 //@resourceconsumption.25 //@resourceconsumption.26 //@resourceconsumption.27 //@resourceconsumption.28 //@resourceconsumption.29 //@resourceconsumption.30 //@resourceconsumption.31 //@resourceconsumption.32 //@resourceconsumption.33 //@resourceconsumption.34 //@resourceconsumption.35 //@resourceconsumption.36 //@resourceconsumption.37 //@resourceconsumption.38 //@resourceconsumption.39 //@resourceconsumption.40 //@resourceconsumption.41 //@resourceconsumption.42 //@resourceconsumption.43"/>
+  <resources resName="memory" resourceavailability="//@resourceavailability.4 //@resourceavailability.5 //@resourceavailability.6 //@resourceavailability.7" tradeoffweight="//@tradeOffvector.1" resourceconsumption="//@resourceconsumption.44 //@resourceconsumption.45 //@resourceconsumption.46 //@resourceconsumption.47 //@resourceconsumption.48 //@resourceconsumption.49 //@resourceconsumption.50 //@resourceconsumption.51 //@resourceconsumption.52 //@resourceconsumption.53 //@resourceconsumption.54 //@resourceconsumption.55 //@resourceconsumption.56 //@resourceconsumption.57 //@resourceconsumption.58 //@resourceconsumption.59 //@resourceconsumption.60 //@resourceconsumption.61 //@resourceconsumption.62 //@resourceconsumption.63 //@resourceconsumption.64 //@resourceconsumption.65 //@resourceconsumption.66 //@resourceconsumption.67 //@resourceconsumption.68 //@resourceconsumption.69 //@resourceconsumption.70 //@resourceconsumption.71 //@resourceconsumption.72 //@resourceconsumption.73 //@resourceconsumption.74 //@resourceconsumption.75 //@resourceconsumption.76 //@resourceconsumption.77 //@resourceconsumption.78 //@resourceconsumption.79 //@resourceconsumption.80 //@resourceconsumption.81 //@resourceconsumption.82 //@resourceconsumption.83 //@resourceconsumption.84 //@resourceconsumption.85 //@resourceconsumption.86 //@resourceconsumption.87"/>
+  <resources resName="power" resourceavailability="//@resourceavailability.8 //@resourceavailability.9 //@resourceavailability.10 //@resourceavailability.11" tradeoffweight="//@tradeOffvector.2" resourceconsumption="//@resourceconsumption.88 //@resourceconsumption.89 //@resourceconsumption.90 //@resourceconsumption.91 //@resourceconsumption.92 //@resourceconsumption.93 //@resourceconsumption.94 //@resourceconsumption.95 //@resourceconsumption.96 //@resourceconsumption.97 //@resourceconsumption.98 //@resourceconsumption.99 //@resourceconsumption.100 //@resourceconsumption.101 //@resourceconsumption.102 //@resourceconsumption.103 //@resourceconsumption.104 //@resourceconsumption.105 //@resourceconsumption.106 //@resourceconsumption.107 //@resourceconsumption.108 //@resourceconsumption.109 //@resourceconsumption.110 //@resourceconsumption.111 //@resourceconsumption.112 //@resourceconsumption.113 //@resourceconsumption.114 //@resourceconsumption.115 //@resourceconsumption.116 //@resourceconsumption.117 //@resourceconsumption.118 //@resourceconsumption.119 //@resourceconsumption.120 //@resourceconsumption.121 //@resourceconsumption.122 //@resourceconsumption.123 //@resourceconsumption.124 //@resourceconsumption.125 //@resourceconsumption.126 //@resourceconsumption.127 //@resourceconsumption.128 //@resourceconsumption.129 //@resourceconsumption.130 //@resourceconsumption.131"/>
+  <resourceconsumption amount="70.0" component="//@components.0" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.0" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="72.0" component="//@components.0" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="70.0" component="//@components.0" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="72.0" component="//@components.1" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="33.0" component="//@components.1" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="40.0" component="//@components.1" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="40.0" component="//@components.1" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="15.0" component="//@components.2" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="15.0" component="//@components.2" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.2" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.2" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.3" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.3" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="50.0" component="//@components.3" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="70.0" component="//@components.3" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="72.0" component="//@components.4" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.4" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="50.0" component="//@components.4" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.4" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.5" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="90.0" component="//@components.5" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.5" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="55.0" component="//@components.5" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.6" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="15.0" component="//@components.6" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.6" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="40.0" component="//@components.6" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.7" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="72.0" component="//@components.7" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.7" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="50.0" component="//@components.7" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.8" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.8" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.8" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="90.0" component="//@components.8" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.9" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="55.0" component="//@components.9" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="20.0" component="//@components.9" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="90.0" component="//@components.9" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="40.0" component="//@components.10" unit="//@units.0" resource="//@resources.0"/>
+  <resourceconsumption amount="10.0" component="//@components.10" unit="//@units.1" resource="//@resources.0"/>
+  <resourceconsumption amount="90.0" component="//@components.10" unit="//@units.2" resource="//@resources.0"/>
+  <resourceconsumption amount="30.0" component="//@components.10" unit="//@units.3" resource="//@resources.0"/>
+  <resourceconsumption amount="256.0" component="//@components.0" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="96.0" component="//@components.0" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.0" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.0" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.1" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.1" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.1" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.1" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="256.0" component="//@components.2" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="128.0" component="//@components.2" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.2" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="128.0" component="//@components.2" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.3" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="32.0" component="//@components.3" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.3" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.3" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.4" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="48.0" component="//@components.4" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.4" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="96.0" component="//@components.4" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="96.0" component="//@components.5" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="32.0" component="//@components.5" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="32.0" component="//@components.5" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.5" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="256.0" component="//@components.6" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="48.0" component="//@components.6" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="32.0" component="//@components.6" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="256.0" component="//@components.6" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.7" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.7" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="256.0" component="//@components.7" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.7" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="256.0" component="//@components.8" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="48.0" component="//@components.8" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.8" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.8" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="48.0" component="//@components.9" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="128.0" component="//@components.9" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.9" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.9" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="148.0" component="//@components.10" unit="//@units.0" resource="//@resources.1"/>
+  <resourceconsumption amount="128.0" component="//@components.10" unit="//@units.1" resource="//@resources.1"/>
+  <resourceconsumption amount="168.0" component="//@components.10" unit="//@units.2" resource="//@resources.1"/>
+  <resourceconsumption amount="64.0" component="//@components.10" unit="//@units.3" resource="//@resources.1"/>
+  <resourceconsumption amount="14.0" component="//@components.0" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.0" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.0" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="3.0" component="//@components.0" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="8.0" component="//@components.1" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.1" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.1" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.1" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="11.0" component="//@components.2" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="3.0" component="//@components.2" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.2" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="14.0" component="//@components.2" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="14.0" component="//@components.3" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.3" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.3" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.3" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="18.0" component="//@components.4" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.4" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.4" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="3.0" component="//@components.4" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="11.0" component="//@components.5" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="14.0" component="//@components.5" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.5" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="18.0" component="//@components.5" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.6" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.6" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="10.0" component="//@components.6" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.6" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="8.0" component="//@components.7" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="7.0" component="//@components.7" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="10.0" component="//@components.7" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="4.0" component="//@components.7" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.8" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="18.0" component="//@components.8" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="14.0" component="//@components.8" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="14.0" component="//@components.8" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="8.0" component="//@components.9" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="14.0" component="//@components.9" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="10.0" component="//@components.9" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="6.0" component="//@components.9" unit="//@units.3" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.10" unit="//@units.0" resource="//@resources.2"/>
+  <resourceconsumption amount="8.0" component="//@components.10" unit="//@units.1" resource="//@resources.2"/>
+  <resourceconsumption amount="18.0" component="//@components.10" unit="//@units.2" resource="//@resources.2"/>
+  <resourceconsumption amount="2.0" component="//@components.10" unit="//@units.3" resource="//@resources.2"/>
+  <resourceavailability amount="100.0" resource="//@resources.0" unit="//@units.0"/>
+  <resourceavailability amount="150.0" resource="//@resources.0" unit="//@units.1"/>
+  <resourceavailability amount="150.0" resource="//@resources.0" unit="//@units.2"/>
+  <resourceavailability amount="100.0" resource="//@resources.0" unit="//@units.3"/>
+  <resourceavailability amount="256.0" resource="//@resources.1" unit="//@units.0"/>
+  <resourceavailability amount="640.0" resource="//@resources.1" unit="//@units.1"/>
+  <resourceavailability amount="640.0" resource="//@resources.1" unit="//@units.2"/>
+  <resourceavailability amount="256.0" resource="//@resources.1" unit="//@units.3"/>
+  <resourceavailability amount="50.0" resource="//@resources.2" unit="//@units.0"/>
+  <resourceavailability amount="25.0" resource="//@resources.2" unit="//@units.1"/>
+  <resourceavailability amount="25.0" resource="//@resources.2" unit="//@units.2"/>
+  <resourceavailability amount="15.0" resource="//@resources.2" unit="//@units.3"/>
+</componentAllocation2:AllocationProblem>

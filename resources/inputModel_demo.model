@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<componentAllocation2:AllocationProblem xmlns:xmi="http://www.omg.org/XMI" xmlns:componentAllocation2="http://www.example.org/componentAllocation2" xmi:version="2.0">
+  <tradeOffvector resource="//@resources.0" weight="0.75"/>
+  <tradeOffvector resource="//@resources.1" weight="0.25"/>
+  <resourceavailability resource="//@resources.0" unit="//@units.0" amount="14.0"/>
+  <resourceavailability resource="//@resources.1" unit="//@units.0" amount="22.0"/>
+  <resourceavailability resource="//@resources.0" unit="//@units.1" amount="20.0"/>
+  <resourceavailability resource="//@resources.1" unit="//@units.1" amount="40.0"/>
+  <resources resName="res1" resourceavailability="//@resourceavailability.0 //@resourceavailability.2" tradeoffweight="//@tradeOffvector.0" resourceconsumption="//@resourceconsumption.0 //@resourceconsumption.1 //@resourceconsumption.2 //@resourceconsumption.3"/>
+  <resources resName="res2" resourceavailability="//@resourceavailability.1 //@resourceavailability.3" tradeoffweight="//@tradeOffvector.1" resourceconsumption="//@resourceconsumption.4 //@resourceconsumption.5 //@resourceconsumption.6 //@resourceconsumption.7"/>
+  <units unitName="unit1" resourceconsumption="//@resourceconsumption.0 //@resourceconsumption.2 //@resourceconsumption.4 //@resourceconsumption.6" resourceavailability="//@resourceavailability.0 //@resourceavailability.1"/>
+  <units unitName="unit2" resourceconsumption="//@resourceconsumption.1 //@resourceconsumption.3 //@resourceconsumption.5 //@resourceconsumption.7" resourceavailability="//@resourceavailability.2 //@resourceavailability.3"/>
+  <components compName="comp1" resourceconsumption="//@resourceconsumption.0 //@resourceconsumption.1 //@resourceconsumption.4 //@resourceconsumption.5"/>
+  <components compName="comp2" resourceconsumption="//@resourceconsumption.2 //@resourceconsumption.3 //@resourceconsumption.6 //@resourceconsumption.7"/>
+  <resourceconsumption component="//@components.0" unit="//@units.0" resource="//@resources.0" amount="10.0"/>
+  <resourceconsumption component="//@components.0" unit="//@units.1" resource="//@resources.0" amount="7.0"/>
+  <resourceconsumption component="//@components.1" unit="//@units.0" resource="//@resources.0" amount="5.0"/>
+  <resourceconsumption component="//@components.1" unit="//@units.1" resource="//@resources.0" amount="12.0"/>
+  <resourceconsumption component="//@components.0" unit="//@units.0" resource="//@resources.1" amount="15.0"/>
+  <resourceconsumption component="//@components.0" unit="//@units.1" resource="//@resources.1" amount="20.0"/>
+  <resourceconsumption component="//@components.1" unit="//@units.0" resource="//@resources.1" amount="5.0"/>
+  <resourceconsumption component="//@components.1" unit="//@units.1" resource="//@resources.1" amount="17.0"/>
+</componentAllocation2:AllocationProblem>

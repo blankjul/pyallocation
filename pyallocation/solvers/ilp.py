@@ -110,6 +110,7 @@ class ILP(Algorithm):
         opt = solve(*define(T, R, w, alloc=alloc, anti_alloc=anti_alloc, ideal=ideal, nadir=nadir), verbose=self.verbose)
 
         pop = Population.create(Individual(X=opt, w=w))
+ 
         self.evaluator.eval(problem, pop)
         self.pop = pop
         self.termination.force_termination = True
@@ -151,8 +152,9 @@ class MultiObjectiveILP(ILP):
         problem.nadir = nadir
 
         W = self.W
+        #print('xxxx'+str(problem.T.shape[0]))
         if W is None:
-            W = get_reference_directions("das-dennis", 3, n_partitions=12)
+            W = get_reference_directions("das-dennis", problem.T.shape[0], n_partitions=12)
 
         for w in W:
             problem.w = w

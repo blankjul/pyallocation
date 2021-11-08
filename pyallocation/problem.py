@@ -27,12 +27,10 @@ class AllocationProblem(ElementwiseProblem):
 
         xl = np.full(n_var, 0)
         xu = np.full(n_var, m - 1)
-
         super().__init__(n_var=n_var, n_obj=n_obj, n_constr=p * m, xl=xl, xu=xu, **kwargs)
 
     def _evaluate(self, x, out, *args, **kwargs):
         R, T, w = self.R, self.T, self.w
-
         C = self.func_calc_consumed(T, x)
         F = calc_obj(C, w)
         G = calc_constr(C, R)
