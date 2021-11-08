@@ -1,10 +1,14 @@
 import pickle
 
+import numpy as np
+
 from pyallocation.loader import load_problem
-from pyallocation.solvers.ilp import MultiObjectiveILP
 from pymoo.algorithms.moo.nsga2 import NSGA2
+from pymoo.core.crossover import Crossover
 from pymoo.core.duplicate import DefaultDuplicateElimination
-from pymoo.factory import get_algorithm, get_sampling, get_crossover, get_mutation
+from pymoo.core.mutation import Mutation
+from pymoo.core.repair import Repair
+from pymoo.factory import get_sampling, get_crossover, get_mutation
 from pymoo.optimize import minimize
 from pymoo.util.normalization import normalize
 from pymoo.visualization.pcp import PCP
@@ -20,10 +24,71 @@ for k in range(10):
     problem = load_problem(k)
     problem.w = None
 
+
+    class MyCrossover(Crossover):
+        def __init__(self):
+            super().__init__(2, 1)
+
+        def _do(self, problem, X, **kwargs):
+            n_parents, n_matings, n_var = X.shape
+
+            _X = np.full((self.n_offsprings, n_matings, problem.n_var), -1)
+
+            for k in range(n_matings):
+
+                for i in range(n_var):
+
+                    if np.random.random() < 0.5:
+                        p = 0
+                    else:
+                        p = 1
+
+                    _X[0, k, i] = X[p, k, i]
+
+            return _X
+
+
+    class MyMutation(Mutation):
+        def _do(self, problem, X, **kwargs):
+            n, m = X.shape
+
+            for i in range(n):
+
+                for j in range(m):
+
+                    if np.random.random() < 0.05:
+                        X[i, j] = np.random.choice(np.arange(problem.xl[j], problem.xu[j] + 1).astype(int))
+
+            return X
+
+
+    class MyRepair(Repair):
+
+        def _do(self, problem, pop, **kwargs):
+
+            # the packing plan for the whole population (each row one individual)
+            Z = pop.get("X")
+
+            # now repair each individual i
+            for i in range(len(Z)):
+
+                for (pos, val) in problem.alloc:
+                    Z[i, pos] = val
+
+                for (pos, val) in problem.anti_alloc:
+                    if Z[i, pos] == val:
+                        cands = [e for e in range(int(problem.xl[pos]), int(problem.xu[pos] + 1)) if e != val]
+                        Z[i, pos] = np.random.choice(cands)
+
+            pop.set("X", Z)
+            return pop
+
+
     method = NSGA2(pop_size=100,
                    sampling=get_sampling("int_random"),
-                   crossover=get_crossover("int_sbx", prob=1.0, eta=3.0),
-                   mutation=get_mutation("int_pm", eta=3.0),
+                   crossover=MyCrossover(),
+                   mutation=MyMutation(),
+                   repair=MyRepair(),
                    eliminate_duplicates=True,
                    )
 
@@ -31,20 +96,16 @@ for k in range(10):
                    method,
                    termination=('n_gen', 100),
                    seed=1,
-                   verbose=True,
+                   verbose=False,
                    save_history=True
                    )
 
     opt = DefaultDuplicateElimination(func=lambda pop: pop.get("F")).do(res.opt)
 
-    print("Best solution found: %s" % res.X)
-    print("Function value: %s" % res.F)
-    print("Constraint violation: %s" % res.CV)
-
-    res = MultiObjectiveILP().setup(problem, verbose=False).run()
-    pickle.dump(res, open("solutions.dat", "wb"))
-
-    opt = DefaultDuplicateElimination().do(res.pop)
+    # res = MultiObjectiveILP().setup(problem, verbose=False).run()
+    # pickle.dump(res, open("solutions.dat", "wb"))
+    #
+    # opt = DefaultDuplicateElimination().do(res.pop)
 
     print(f"System {k}: {len(opt)} solutions.")
 
