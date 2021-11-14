@@ -11,6 +11,7 @@ Validation
 The OCL-based program for validating CAP modes is provided in *CAP Models Validation.zip*.
 
 To validate a CAP model, *e.g.,* system_n0.model, enter the following from within the CAP Models Validation directory:
+
 **java -jar ./ExecutableOne.jar system_n0.model**
 
 ----------
