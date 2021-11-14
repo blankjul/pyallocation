@@ -42,8 +42,6 @@ This one plots the solution set on a 3D scatter plot. In the plot, the high trad
 
 **Usage:** python .\\visualize\_solution\_set.py ..\\resources\\system\_n1.model ..\\resources\\solutionSet\_1\_mo.model
 
-**TO DO:** We need to label each solution point in the objective space with the corresponding solution id.
-
 4. visualize\_a\_single\_solution.py
 
 This one visualizes a single solution using a Petal Diagram.
