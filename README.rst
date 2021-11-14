@@ -24,7 +24,7 @@ Solver
 ----------
 The main Python scripts are:
 
-1. solve\_cap\_single\_objective.py
+:red: 1. solve\_cap\_single\_objective.py
 
 This one solves single-objective component allocation problems.
 
