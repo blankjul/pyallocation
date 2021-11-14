@@ -8,13 +8,10 @@ pyallocation
 ----------
 Validation
 ----------
+The OCL-based program for validating CAP modes is provided in *CAP Models Validation.zip*.
 
-
-
-The program *solve\_cap\_in\_a\_model\_file.py* reads the input model file *system\_n0.model*,
-solves the component allocation problem, and stores the optimal solution set in the output model file *solutionSet\_0.model*.
-The input meta-model file is *componentAllocation2.ecore* and the output meta-model file is *solutionSet.ecore*.
-This version of the program assumes a variable number of resources (i.e., the updated meta-model for the component allocation problem is used).
+To validate a CAP model, *e.g.,* system_n0.model, enter the following from within the CAP Models Validation directory:
+**java -jar ./ExecutableOne.jar system_n0.model**
 
 ----------
 Transformation
